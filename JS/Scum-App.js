@@ -59,7 +59,7 @@ function createWeaponColumns(weapons) {
 function createWeaponHTML(weapon) {
 
     let html = '<div class= "col-md-4 col-lg-4 weapons" style="text-align: center"><div><img style="width: 200px; height: 200px" src="';
-    html += weapon.image + '"></div><div><h2>' + weapon.name.toUpperCase() + '</h2></div><button type="button" class="btn btn-md btn-primary">SELECT</button><hr></div>';
+    html += weapon.image + '"></div><div><h2>' + weapon.name.toUpperCase() + '</h2></div><button type="button" id="'+ weapon.id +'" onclick="amountNeeded('+ weapon.id +')" class="btn btn-md btn-primary">SELECT</button><hr></div>';
 
     return html;
 };
@@ -141,13 +141,25 @@ function wallLife(id){
         return lengthValue * numberValue;
     }
 
-    console.log('wall health:' + wallTotalHealth(lengthValue, numberValue));
-    let html = '<div class="col bg-dark"><h1 style="color: red">Total Health = '+ wallTotalHealth(lengthValue, numberValue)+'</h1></div>'
+    // console.log('wall health:' + wallTotalHealth(lengthValue, numberValue));
+    let html = '<div class="col bg-dark"><h3 hidden id="wllId">'+ id +'</h3><h1 style="color: red">Total Health = <span id="ttlHlth">'+ wallTotalHealth(lengthValue, numberValue)+'</span></h1></div>'
 
     let wallHealthArea = document.querySelector('.total');
     wallHealthArea.innerHTML = html;
 }
 
+
+function amountNeeded(id){
+    var weapon = weapons[id - 1];
+    var wallHealth = document.querySelector('#ttlHlth').innerHTML;
+    var wallId =  document.getElementById('wllId').innerHTML;
+    var wall = walls[wallId -1];
+
+    console.log(wallId)
+    console.log(wall)
+    console.log(wallHealth)
+    console.log(weapon)
+}
 
 
 
