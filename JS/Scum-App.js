@@ -41,7 +41,7 @@ function createWallColumns(walls) {
 function createWallHTML(wall) {
 
     let html = '<div class= "col-md-2 col-lg-2 m-1 walls" style="text-align: center"><div><img style="width: 200px; height: 200px" src="';
-    html += wall.image + '"></div><div><h2>' + wall.name.toUpperCase() + '</h2></div><hr><div>Length of Wall: <select id="length'+ wall.id +'" class="lengthOfWall"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><br># of walls<select id="number'+ wall.id +'" class="numberOfWalls"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><br><button type="button" id="' + wall.id +' " onclick="wallLife('+ wall.id +')">Set Wall Health</button></div></div>';
+    html += wall.image + '"></div><div><h2 class="mt-2">' + wall.name.toUpperCase() + '</h2></div><hr><div>Length of Wall: <select id="length'+ wall.id +'" class="lengthOfWall mb-2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><br># of walls<select id="number'+ wall.id +'" class="numberOfWalls mb-2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><br><button class="btn btn-primary btn-dark" type="button" id="' + wall.id +' " onclick="wallLife('+ wall.id +')"><a href="#healthSpot">Set Wall Health</a></button></div></div>';
 
     return html;
 };
@@ -142,7 +142,7 @@ function wallLife(id){
     }
 
     console.log('wall health:' + wallTotalHealth(lengthValue, numberValue));
-    let html = '<div class="col"><h1>Total Health = '+ wallTotalHealth(lengthValue, numberValue)+'</h1></div>'
+    let html = '<div class="col bg-dark"><h1 style="color: red">Total Health = '+ wallTotalHealth(lengthValue, numberValue)+'</h1></div>'
 
     let wallHealthArea = document.querySelector('.total');
     wallHealthArea.innerHTML = html;
