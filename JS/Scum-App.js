@@ -472,7 +472,7 @@ function amountNeeded(id){
         return wallHealth / damage;
     }
 
-    let Finalhtml = '<div class="col bg-dark text-danger"><h1>You need<br> '+ weaponsNeeded(wallHealth, damage).toFixed(2) +' '+ weapon.name +'<br> to destroy '+ numberOfWalls +'<br> '+ wallLength +'m '+ walls[wallId - 1].name.toUpperCase() +' walls</h1></div>'
+    let Finalhtml = '<div class="col bg-dark text-danger"><h1>You need<br> '+ weaponsNeeded(wallHealth, damage).toFixed(2) / +' '+ weapon.name +'<br> to destroy ('+ numberOfWalls +')<br> '+ wallLength +'m '+ walls[wallId - 1].name.toUpperCase() +' wall(s)</h1></div>'
 
     let finalArea = document.querySelector('.final');
     finalArea.innerHTML = Finalhtml;
