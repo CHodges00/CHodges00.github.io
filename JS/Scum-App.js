@@ -4,8 +4,8 @@ let walls = function () {
             {id: 1, name: "wood", image: "./IMG/wood.jpg"},
             {id: 2, name: "wire", image: "./IMG/barbed.jpg"},
             {id: 3, name: "metal", image: "./IMG/metal.jpg"},
-            {id: 4, name: "brick", image: "./IMG/brick.jpg"},
-            {id: 5, name: "concrete", image: "./IMG/concrete.jpg"}
+            {id: 4, name: "brick", image: "./IMG/brick2.jpg"},
+            {id: 5, name: "concrete", image: "./IMG/concrete2.jpg"}
         ]
     } else {
         return JSON.parse(window.localStorage.getItem("walls"));
@@ -16,11 +16,11 @@ let walls = function () {
 let weapons = function () {
     if (window.localStorage.getItem("weapons") === null) {
         return [
-            {id: 1, name: 'Improvised Mine', image: "./IMG/imp-mine.jpg", damage: 0},
-            {id: 2, name: 'Improvised Claymore', image: "./IMG/imp-claymore.jpg", damage: 0},
-            {id: 3, name: 'Claymore', image: "./IMG/claymore.jpg", damage: 0},
-            {id: 4, name: 'Anti-personnel Mine', image: "./IMG/anti.jpg", damage: 0},
-            {id: 5, name: 'Small Anti-personnel Mine', image: "./IMG/small-anti-personnel.jpg", damage: 0},
+            {id: 1, name: 'Imp Mine', image: "./IMG/imp-mine.jpg", damage: 0},
+            {id: 2, name: 'Imp Claymore', image: "./IMG/imp-claymore.jpg", damage: 0},
+            {id: 3, name: 'Claymore', image: "./IMG/clay4.jpg", damage: 0},
+            {id: 4, name: 'AP Mine', image: "./IMG/ap2.jpg", damage: 0},
+            {id: 5, name: 'Small AP Mine', image: "./IMG/small-anti-personnel.jpg", damage: 0},
             {id: 6, name: 'Prom-1', image: "./IMG/prom.jpg", damage: 0},
             {id: 7, name: 'M82', image: "./IMG/m82.jpg", damage: 0},
         ]

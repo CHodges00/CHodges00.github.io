@@ -4,9 +4,9 @@ body{
 
 .wallsCard{
     border-radius: 5%;
-    box-shadow: 0 0 10px 1px black;
+    box-shadow: 5px 5px 20px 1px black;
 }
 .weaponsCard{
     border-radius: 5%;
-    box-shadow: 0 0 10px 1px black;
+    box-shadow: 5px 5px 20px 1px black;
 }
