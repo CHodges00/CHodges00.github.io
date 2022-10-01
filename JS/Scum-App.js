@@ -41,7 +41,7 @@ function createWallColumns(walls) {
 function createWallHTML(wall) {
 
     let html = '<div class= "col-md-2 col-lg-2 m-1 walls" style="text-align: center"><div><img style="width: 200px; height: 200px" src="';
-    html += wall.image + '"></div><div><h2 class="mt-2">' + wall.name.toUpperCase() + '</h2></div><hr><div>Length of Wall: <select id="length'+ wall.id +'" class="lengthOfWall mb-2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><br># of walls<select id="number'+ wall.id +'" class="numberOfWalls mb-2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><br><button class="btn btn-primary btn-dark" type="button" id="' + wall.id +' " onclick="wallLife('+ wall.id +')">Set Wall Health</button></div></div>';
+    html += wall.image + '"></div><div><h2 class="mt-2">' + wall.name.toUpperCase() + '</h2></div><hr><div>Length of Wall: <select id="length'+ wall.id +'" class="lengthOfWall mb-2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><br># of walls<select id="number'+ wall.id +'" class="numberOfWalls mb-2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><br><a href="#wallJump"><button class="btn btn-primary btn-dark" type="button" id="' + wall.id +' " onclick="wallLife('+ wall.id +')">Set Wall Health</button></a></div></div>';
 
     return html;
 };
@@ -59,7 +59,7 @@ function createWeaponColumns(weapons) {
 function createWeaponHTML(weapon) {
 
     let html = '<div class= "col-md-4 col-lg-4 weapons" style="text-align: center"><div><img style="width: 200px; height: 200px" src="';
-    html += weapon.image + '"></div><div><h2>' + weapon.name.toUpperCase() + '</h2></div><button type="button" id="'+ weapon.id +'" onclick="amountNeeded('+ weapon.id +')" class="btn btn-md btn-primary">SELECT</button><hr></div>';
+    html += weapon.image + '"></div><div><h2>' + weapon.name.toUpperCase() + '</h2></div><a href="#finalJump"><button type="button" id="'+ weapon.id +'" onclick="amountNeeded('+ weapon.id +')" class="btn btn-md btn-primary">SELECT</button></a><hr></div>';
 
     return html;
 };
@@ -486,6 +486,7 @@ function amountNeeded(id){
     console.log('weapon id: ' + id)
     console.log('weapon name: ' + weapon.name);
     console.log('weapon damage: ' + damage)
+    console.log('needed: ' + weaponsNeeded(wallHealth, damage))
 
 }
 
