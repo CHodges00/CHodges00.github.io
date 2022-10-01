@@ -41,7 +41,7 @@ function createWallColumns(walls) {
 function createWallHTML(wall) {
 
     let html = '<div class= "col-md-2 col-lg-2 m-1 walls" style="text-align: center"><div><img style="width: 200px; height: 200px" src="';
-    html += wall.image + '"></div><div><h2 class="mt-2">' + wall.name.toUpperCase() + '</h2></div><hr><div>Length of Wall: <select id="length'+ wall.id +'" class="lengthOfWall mb-2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><br># of walls<select id="number'+ wall.id +'" class="numberOfWalls mb-2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><br><a href="#ttlHlth"><button class="btn btn-primary btn-dark" type="button" id="' + wall.id +' " onclick="wallLife('+ wall.id +')">Set Wall Health</button></a></div></div>';
+    html += wall.image + '"></div><div><h2 class="mt-2">' + wall.name.toUpperCase() + '</h2></div><hr><div>Length of Wall: <select id="length'+ wall.id +'" class="lengthOfWall mb-2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><br># of walls<select id="number'+ wall.id +'" class="numberOfWalls mb-2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><br><button class="btn btn-primary btn-dark" type="button" id="' + wall.id +' " onclick="wallLife('+ wall.id +')">Set Wall Health</button></div></div>';
 
     return html;
 };
@@ -59,7 +59,7 @@ function createWeaponColumns(weapons) {
 function createWeaponHTML(weapon) {
 
     let html = '<div class= "col-md-4 col-lg-4 weapons" style="text-align: center"><div><img style="width: 200px; height: 200px" src="';
-    html += weapon.image + '"></div><div><h2>' + weapon.name.toUpperCase() + '</h2></div><button type="button" id="'+ weapon.id +'" onclick="amountNeeded('+ weapon.id +')" class="btn btn-md btn-primary">SELECT</button><hr></div>';
+    html += weapon.image + '"></div><div><h2>' + weapon.name.toUpperCase() + '</h2></div><button type="button" id="'+ weapon.id +'" onclick="amountNeeded()" class="btn btn-md btn-primary">SELECT</button><hr></div>';
 
     return html;
 };
@@ -71,7 +71,10 @@ function createWeaponHTML(weapon) {
 function wallLife(id){
     var wall =  walls[id -1];
     var wallLength = document.getElementById('length' + wall.id +'');
+    var numberOfWalls = document.getElementById('number' + wall.id + '')
+    var numberValue = numberOfWalls.options[numberOfWalls.selectedIndex].value;
     var lengthValue = wallLength.options[wallLength.selectedIndex].value;
+
     if (wall.id === 1 && lengthValue === '1') {
         lengthValue = '175';
     } else if (wall.id === 1 && lengthValue === '2') {
@@ -134,31 +137,27 @@ function wallLife(id){
     }
 
 
-
-    var numberOfWalls = document.getElementById('number' + wall.id +'');
-    var numberValue = numberOfWalls.options[numberOfWalls.selectedIndex].value;
     function wallTotalHealth(lengthValue, numberValue){
         return lengthValue * numberValue;
     }
 
-    // console.log('wall health:' + wallTotalHealth(lengthValue, numberValue));
-    let html = '<div class="col bg-dark"><h3 hidden id="wllId">'+ id +'</h3><h1 style="color: red">Total Health = <span id="ttlHlth">'+ wallTotalHealth(lengthValue, numberValue)+'</span></h1></div>'
+
+    let html = '<div class="col bg-dark"><h3 hidden id="wllLength">'+ wallLength.options[wallLength.selectedIndex].value +'</h3><h3 hidden id="wllId">'+ id +'</h3><h3 hidden id="number">'+ numberOfWalls.options[numberOfWalls.selectedIndex].value +'</h3><h1 style="color: red">Type = '+ walls[wall.id - 1].name.toUpperCase() +'</h1><h1 style="color: red">Length = '+ wallLength.options[wallLength.selectedIndex].value +'</h1><h1 style="color: red">Number = '+ numberOfWalls.options[numberOfWalls.selectedIndex].value +'</h1><h1 style="color: red">Total Health = <span id="ttlHlth">'+ wallTotalHealth(lengthValue, numberValue)+'</span></h1></div>'
 
     let wallHealthArea = document.querySelector('.total');
     wallHealthArea.innerHTML = html;
 }
 
 
-function amountNeeded(id){
-    var weapon = weapons[id - 1];
+function amountNeeded(){
     var wallHealth = document.querySelector('#ttlHlth').innerHTML;
-    var wallId =  document.getElementById('wllId').innerHTML;
-    var wall = walls[wallId -1];
-
-    console.log(wallId)
-    console.log(wall)
-    console.log(wallHealth)
-    console.log(weapon)
+    var wallLength = document.querySelector('#wllLength').innerHTML;
+    var wallId =  document.querySelector('#wllId').innerHTML;
+    var numberOfWalls = document.querySelector('#number').innerHTML
+    console.log('# of walls: '+ numberOfWalls);
+    console.log('wall id: ' + wallId);
+    console.log('length: ' + wallLength);
+    console.log('health: ' + wallHealth);
 }
 
 
