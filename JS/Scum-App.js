@@ -5,7 +5,12 @@ let walls = function () {
             {id: 2, name: "wire", image: "./IMG/barbed.jpg"},
             {id: 3, name: "metal", image: "./IMG/metal.jpg"},
             {id: 4, name: "brick", image: "./IMG/brick2.jpg"},
-            {id: 5, name: "concrete", image: "./IMG/concrete.jpg"}
+            {id: 5, name: "concrete", image: "./IMG/concrete.jpg"},
+            // {id: 6, name: "sm cabin", image:""},
+            // {id: 7, name: "md cabin", image:""},
+            // {id: 8, name: "lg cabin", image:""},
+            // {id: 9, name: "foundation", image:""},
+            {id: 6, name: "sand bag", image:""}
         ]
     } else {
         return JSON.parse(window.localStorage.getItem("walls"));
@@ -23,6 +28,7 @@ let weapons = function () {
             {id: 5, name: 'Small AP Mine', image: "./IMG/smallap.jpg", damage: 0},
             {id: 6, name: 'Prom-1', image: "./IMG/prom.jpg", damage: 0},
             {id: 7, name: 'M82', image: "./IMG/m82.jpg", damage: 0},
+            {id: 8, name: 'C4', image: "./IMG/c4.png", damage: 0}
         ]
     } else {
         return JSON.parse(window.localStorage.getItem("weapons"));
@@ -65,7 +71,7 @@ function createWeaponHTML(weapon) {
 };
 //WEAPONS END
 
-//FUNCTIONALITY START
+//WALL FUNCTIONALITY START
 
 
 function wallLife(id){
@@ -74,6 +80,8 @@ function wallLife(id){
     var numberOfWalls = document.getElementById('number' + wall.id + '')
     var numberValue = numberOfWalls.options[numberOfWalls.selectedIndex].value;
     var lengthValue = wallLength.options[wallLength.selectedIndex].value;
+
+    //WOOD START
 
     if (wall.id === 1 && lengthValue === '1') {
         lengthValue = '175';
@@ -87,6 +95,12 @@ function wallLife(id){
         lengthValue = '275';
     }
 
+    //WOOD END
+
+    //==============================================================================================
+
+    //WIRE START
+
     if (wall.id === 2 && lengthValue === '1') {
         lengthValue = '525';
     } else if (wall.id === 2 && lengthValue === '2') {
@@ -98,6 +112,15 @@ function wallLife(id){
     } else if (wall.id === 2 && lengthValue === '5') {
         lengthValue = '825';
     }
+
+    //WIRE END
+
+    //==============================================================================================
+
+    //METAL START
+
+    //==============================================================================================
+
 
     if (wall.id === 3 && lengthValue === '1') {
         lengthValue = '875';
@@ -111,6 +134,13 @@ function wallLife(id){
         lengthValue = '1325';
     }
 
+    //METAL END
+
+    //==============================================================================================
+
+
+    //BRICK START
+
     if (wall.id === 4 && lengthValue === '1') {
         lengthValue = '1650';
     } else if (wall.id === 4 && lengthValue === '2') {
@@ -123,6 +153,11 @@ function wallLife(id){
         lengthValue = '1950';
     }
 
+    //BRICK END
+
+    //==============================================================================================
+
+    //CONCRETE START
 
     if (wall.id === 5 && lengthValue === '1') {
         lengthValue = '2150';
@@ -136,6 +171,93 @@ function wallLife(id){
         lengthValue = '2450';
     }
 
+    //CONCRETE END
+
+    //==============================================================================================
+
+    //CABIN START
+
+    // if (wall.id === 6 && lengthValue === '1') {
+    //     lengthValue = '2150';
+    // } else if (wall.id === 6 && lengthValue === '2') {
+    //     lengthValue = '2225';
+    // } else if (wall.id === 6 && lengthValue === '3') {
+    //     lengthValue = '2300';
+    // } else if (wall.id === 6 && lengthValue === '4') {
+    //     lengthValue = '2375';
+    // } else if (wall.id === 6 && lengthValue === '5') {
+    //     lengthValue = '2450';
+    // }
+    //
+    // if (wall.id === 7 && lengthValue === '1') {
+    //     lengthValue = '2150';
+    // } else if (wall.id === 7 && lengthValue === '2') {
+    //     lengthValue = '2225';
+    // } else if (wall.id === 7 && lengthValue === '3') {
+    //     lengthValue = '2300';
+    // } else if (wall.id === 7 && lengthValue === '4') {
+    //     lengthValue = '2375';
+    // } else if (wall.id === 7 && lengthValue === '5') {
+    //     lengthValue = '2450';
+    // }
+    //
+    // if (wall.id === 8 && lengthValue === '1') {
+    //     lengthValue = '2150';
+    // } else if (wall.id === 8 && lengthValue === '2') {
+    //     lengthValue = '2225';
+    // } else if (wall.id === 8 && lengthValue === '3') {
+    //     lengthValue = '2300';
+    // } else if (wall.id === 8 && lengthValue === '4') {
+    //     lengthValue = '2375';
+    // } else if (wall.id === 8 && lengthValue === '5') {
+    //     lengthValue = '2450';
+    // }
+
+
+
+    //CABIN END
+
+    //==============================================================================================
+
+    //FOUNDATION START
+
+    // if (wall.id === 9 && lengthValue === '1') {
+    //     lengthValue = '3000';
+    // } else if (wall.id === 9 && lengthValue === '2') {
+    //     lengthValue = '3000';
+    // } else if (wall.id === 9 && lengthValue === '3') {
+    //     lengthValue = '3000';
+    // } else if (wall.id === 9 && lengthValue === '4') {
+    //     lengthValue = '3000';
+    // } else if (wall.id === 9 && lengthValue === '5') {
+    //     lengthValue = '3000';
+    // }
+
+    //FOUNDATION END
+
+    //==============================================================================================
+
+    //SANDBAG START
+
+    if (wall.id === 6 && lengthValue === '1') {
+        lengthValue = '1200';
+    } else if (wall.id === 6 && lengthValue === '2') {
+        lengthValue = '1200';
+    } else if (wall.id === 6 && lengthValue === '3') {
+        lengthValue = '1200';
+    } else if (wall.id === 6 && lengthValue === '4') {
+        lengthValue = '1200';
+    } else if (wall.id === 6 && lengthValue === '5') {
+        lengthValue = '1200';
+    }
+
+    //SANDBAG END
+
+    //==============================================================================================
+
+
+
+
 
     function wallTotalHealth(lengthValue, numberValue){
         return lengthValue * numberValue;
@@ -147,6 +269,11 @@ function wallLife(id){
     let wallHealthArea = document.querySelector('.total');
     wallHealthArea.innerHTML = html;
 }
+//WALL FUNCTIONALITY END
+
+//==============================================================================================
+
+//WEAPON FUNCTIONALITY START
 
 
 function amountNeeded(id){
@@ -161,7 +288,9 @@ function amountNeeded(id){
     //==============================================================================================
 
     //IMP MINE START
+
     //imp mine on wood
+
     if (id === 1 && parseInt(wallId) === 1 && parseInt(wallLength) === 1){
         damage = 11
     }else if (id === 1 && parseInt(wallId) === 1 && parseInt(wallLength) === 2){
@@ -176,6 +305,7 @@ function amountNeeded(id){
     else if (id === 1 && parseInt(wallId) === 1 && parseInt(wallLength) === 5){
         damage = 12
     }
+
     // imp mine on wire
     else if (id === 1 && parseInt(wallId) === 2 && parseInt(wallLength) === 1){
         damage = 9
@@ -192,6 +322,7 @@ function amountNeeded(id){
     else if (id === 1 && parseInt(wallId) === 2 && parseInt(wallLength) === 5){
         damage = 9
     }
+
     //imp mine on metal
     else if (id === 1 && parseInt(wallId) === 3 && parseInt(wallLength) === 1){
         damage = 8
@@ -208,6 +339,7 @@ function amountNeeded(id){
     else if (id === 1 && parseInt(wallId) === 3 && parseInt(wallLength) === 5){
         damage = 7
     }
+
     //imp mine on brick
     else if (id === 1 && parseInt(wallId) === 4 && parseInt(wallLength) === 1){
         damage = 4
@@ -224,6 +356,7 @@ function amountNeeded(id){
     else if (id === 1 && parseInt(wallId) === 4 && parseInt(wallLength) === 5){
         damage = 4
     }
+
     //imp mine on concrete
     else if (id === 1 && parseInt(wallId) === 5 && parseInt(wallLength) === 1){
         damage = 3
@@ -240,6 +373,13 @@ function amountNeeded(id){
     else if (id === 1 && parseInt(wallId) === 5 && parseInt(wallLength) === 5){
         damage = 3
     }
+
+    //imp mine on sandbag
+    else if (id === 1 && parseInt(wallId) === 6 && parseInt(wallLength) < 6){
+        damage = 11
+    }
+
+
     //IMP MINE END
 
         //==============================================================================================
@@ -277,6 +417,10 @@ function amountNeeded(id){
     // imp clay on concrete
     else if(id === 2 && parseInt(wallId) === 5 && parseInt(wallLength) < 6) {
         damage = 8
+    }
+    //imp clay on sandbag
+    else if (id === 2 && parseInt(wallId) === 6 && parseInt(wallLength) < 6){
+        damage = 43
     }
 
 
@@ -354,6 +498,10 @@ function amountNeeded(id){
     else if(id === 3 && parseInt(wallId) === 5 && parseInt(wallLength) === 5) {
         damage = 14
     }
+    //clay on sandbag
+    else if (id === 3 && parseInt(wallId) === 6 && parseInt(wallLength) < 6){
+        damage = 56
+    }
 
 
     //CLAYMORE END
@@ -382,6 +530,10 @@ function amountNeeded(id){
     else if(id === 4 && parseInt(wallId) === 5 && parseInt(wallLength) < 6) {
         damage = 3
     }
+    //small ap on sandbag
+    else if (id === 4 && parseInt(wallId) === 6 && parseInt(wallLength) < 6){
+        damage = 11
+    }
 
 
     //SMALL AP MINE END
@@ -408,6 +560,10 @@ function amountNeeded(id){
     //ap on concrete
     else if(id === 5 && parseInt(wallId) === 5 && parseInt(wallLength) < 6) {
         damage = 3
+    }
+    //ap on sandbag
+    else if (id === 5 && parseInt(wallId) === 6 && parseInt(wallLength) < 6){
+        damage = 10
     }
 
     //AP MINE END
@@ -436,6 +592,10 @@ function amountNeeded(id){
     else if(id === 6 && parseInt(wallId) === 5 && parseInt(wallLength) < 6) {
         damage = 3
     }
+    //prom 1 on sandbag
+    else if (id === 6 && parseInt(wallId) === 6 && parseInt(wallLength) < 6){
+        damage = 11
+    }
 
     //PROM 1 END
 
@@ -463,8 +623,43 @@ function amountNeeded(id){
     else if(id === 7 && parseInt(wallId) === 5 && parseInt(wallLength) < 6) {
         damage = 9
     }
+    //M82 on sandbag
+    else if (id === 7 && parseInt(wallId) === 6 && parseInt(wallLength) < 6){
+        damage = 10.5
+    }
 
     //M82 END
+
+    //==============================================================================================
+
+    //C4 START
+
+    //C4 on wood
+    if(id === 8 && parseInt(wallId) === 1 && parseInt(wallLength) < 6){
+        damage = 1600
+    }
+    //C4 on wire
+    else if(id === 8 && parseInt(wallId) === 2 && parseInt(wallLength) < 6) {
+        damage = 1600
+    }
+    //C4 on metal
+    else if(id === 8 && parseInt(wallId) === 3 && parseInt(wallLength) < 6) {
+        damage = 1350
+    }
+    //C4 on brick
+    else if(id === 8 && parseInt(wallId) === 4 && parseInt(wallLength) < 6) {
+        damage = 1350
+    }
+    //C4 on concrete
+    else if(id === 8 && parseInt(wallId) === 5 && parseInt(wallLength) < 6) {
+        damage = 1070
+    }
+    //C4 on sandbag
+    else if (id === 8 && parseInt(wallId) === 6 && parseInt(wallLength) < 6){
+        damage = 1600
+    }
+
+    //C4 END
 
     //==============================================================================================
 
@@ -472,23 +667,14 @@ function amountNeeded(id){
         return wallHealth / damage;
     }
 
-    let Finalhtml = '<div class="col bg-dark text-white"><h1>You need<br> <span style="color: red">'+ weaponsNeeded(wallHealth, damage).toFixed(2) +'</span> - <span style="color: green">'+ weapon.name +'</span><br> to destroy <span style="color: green">'+ numberOfWalls +'</span><br> <span style="color: green">'+ wallLength +'m '+ walls[wallId - 1].name.toUpperCase() +'</span> wall(s)</h1></div>'
+    let Finalhtml = '<div class="col bg-dark text-white"><h5 style="font-weight: bold; color: red"> ** Each '+ weapon.name +' will do '+ damage +' damage to a '+ wallLength +'m '+ walls[wallId - 1].name +' structure **</h5><h1>You need<br> <span style="color: red">'+ weaponsNeeded(wallHealth, damage).toFixed(2) +'</span> - <span style="color: green">'+ weapon.name +'</span><br> to destroy <span style="color: green">'+ numberOfWalls +'</span><br> <span style="color: green">'+ wallLength +'m '+ walls[wallId - 1].name.toUpperCase() +'</span> wall(s)</h1></div>'
 
     let finalArea = document.querySelector('.final');
     finalArea.innerHTML = Finalhtml;
 
-
-
-    // console.log('# of walls: '+ numberOfWalls);
-    // console.log('wall id: ' + wallId);
-    // console.log('length: ' + wallLength);
-    // console.log('health: ' + wallHealth);
-    // console.log('weapon id: ' + id)
-    // console.log('weapon name: ' + weapon.name);
-    // console.log('weapon damage: ' + damage)
-    // console.log('needed: ' + weaponsNeeded(wallHealth, damage))
-
 }
+
+//WEAPON FUNCTIONALITY END
 
 
 
@@ -497,6 +683,7 @@ function amountNeeded(id){
 let wallContentArea = document.querySelector('.walls');
 wallContentArea.innerHTML = createWallColumns(walls);
 //WALLS END
+
 //WEAPONS START
 let weaponContentArea = document.querySelector('.weapons');
 weaponContentArea.innerHTML = createWeaponColumns(weapons);
