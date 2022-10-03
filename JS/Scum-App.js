@@ -6,11 +6,11 @@ let walls = function () {
             {id: 3, name: "metal", image: "./IMG/metal.jpg"},
             {id: 4, name: "brick", image: "./IMG/brick2.jpg"},
             {id: 5, name: "concrete", image: "./IMG/concrete.jpg"},
-            // {id: 6, name: "sm cabin", image:""},
-            // {id: 7, name: "md cabin", image:""},
-            // {id: 8, name: "lg cabin", image:""},
-            // {id: 9, name: "foundation", image:""},
-            {id: 6, name: "sand bag", image:""}
+            {id: 6, name: "sand bag", image:"./IMG/sand.png"},
+            // {id: 7, name: "sm cabin", image:""},
+            // {id: 8, name: "md cabin", image:""},
+            // {id: 9, name: "lg cabin", image:""},
+            // {id: 10, name: "foundation", image:""}
         ]
     } else {
         return JSON.parse(window.localStorage.getItem("walls"));
@@ -28,7 +28,10 @@ let weapons = function () {
             {id: 5, name: 'Small AP Mine', image: "./IMG/smallap.jpg", damage: 0},
             {id: 6, name: 'Prom-1', image: "./IMG/prom.jpg", damage: 0},
             {id: 7, name: 'M82', image: "./IMG/m82.jpg", damage: 0},
-            {id: 8, name: 'C4', image: "./IMG/c4.png", damage: 0}
+            {id: 8, name: 'C4', image: "./IMG/c4.png", damage: 0},
+            {id: 9, name: 'Wood Bolt', image: "./IMG/crosswood.png", damage: 0},
+            {id: 10, name: 'Metal Bolt', image: "./IMG/crossmetal.png", damage: 0}
+
         ]
     } else {
         return JSON.parse(window.localStorage.getItem("weapons"));
@@ -47,7 +50,7 @@ function createWallColumns(walls) {
 function createWallHTML(wall) {
 
     let html = '<div class= "col-md-3 col-lg-3 m-3 p-3 wallsCard" style="text-align: center"><div><img style="width: 200px; height: 200px" src="';
-    html += wall.image + '"></div><div><h2 class="mt-2">' + wall.name.toUpperCase() + '</h2></div><hr><div>Length of Wall: <select id="length'+ wall.id +'" class="lengthOfWall mb-2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><br># of walls<select id="number'+ wall.id +'" class="numberOfWalls mb-2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><br><a href="#wallJump"><button class="btn btn-primary btn-dark" type="button" id="' + wall.id +' " onclick="wallLife('+ wall.id +')">Set Health</button></a></div></div>';
+    html += wall.image + '"></div><div><h2 class="mt-2">' + wall.name.toUpperCase() + '</h2></div><hr><div>Length of Structure: <select id="length'+ wall.id +'" class="lengthOfWall mb-2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><br># of Structures<select id="number'+ wall.id +'" class="numberOfWalls mb-2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><br><a href="#wallJump"><button class="btn btn-primary btn-dark" type="button" id="' + wall.id +' " onclick="wallLife('+ wall.id +')">Set Health</button></a></div></div>';
 
     return html;
 };
@@ -260,7 +263,7 @@ function wallLife(id){
 
 
     function wallTotalHealth(lengthValue, numberValue){
-        return lengthValue * numberValue;
+        return Math.round(lengthValue * numberValue);
     }
 
 
@@ -663,18 +666,113 @@ function amountNeeded(id){
 
     //==============================================================================================
 
-    function weaponsNeeded(wallHealth, damage){
-        return wallHealth / damage;
+    //WOOD ARROW START
+
+    //wood arrow on wood
+    if(id === 9 && parseInt(wallId) === 1 && parseInt(wallLength) < 6){
+        damage = 1.4
+    }
+    //wood arrow on wire
+    else if(id === 9 && parseInt(wallId) === 2 && parseInt(wallLength) < 6) {
+        damage = 1.4
+    }
+    //wood arrow on metal
+    else if(id === 9 && parseInt(wallId) === 3 && parseInt(wallLength) < 6) {
+        damage = 1.4
+    }
+    //wood arrow on brick
+    else if(id === 9 && parseInt(wallId) === 4 && parseInt(wallLength) < 6) {
+        damage = 1.4
+    }
+    //wood arrow on concrete
+    else if(id === 9 && parseInt(wallId) === 5 && parseInt(wallLength) < 6) {
+        damage = 1.4
+    }
+    //wood arrow on sandbag
+    else if (id === 9 && parseInt(wallId) === 6 && parseInt(wallLength) < 6){
+        damage = 1.4
     }
 
-    let Finalhtml = '<div class="col bg-dark text-white"><h5 style="font-weight: bold; color: red"> ** Each '+ weapon.name +' will do '+ damage +' damage to a '+ wallLength +'m '+ walls[wallId - 1].name +' structure **</h5><h1>You need<br> <span style="color: red">'+ weaponsNeeded(wallHealth, damage).toFixed(2) +'</span> - <span style="color: green">'+ weapon.name +'</span><br> to destroy <span style="color: green">'+ numberOfWalls +'</span><br> <span style="color: green">'+ wallLength +'m '+ walls[wallId - 1].name.toUpperCase() +'</span> wall(s)</h1></div>'
+    //WOOD ARROW END
+
+    //==============================================================================================
+
+    //METAL ARROW START
+
+    //metal arrow on wood
+    if(id === 10 && parseInt(wallId) === 1 && parseInt(wallLength) < 6){
+        damage = 2.1
+    }
+    //metal arrow on wire
+    else if(id === 10 && parseInt(wallId) === 2 && parseInt(wallLength) < 6) {
+        damage = 2.1
+    }
+    //metal arrow on metal
+    else if(id === 10 && parseInt(wallId) === 3 && parseInt(wallLength) < 6) {
+        damage = 2.1
+    }
+    //metal arrow on brick
+    else if(id === 10 && parseInt(wallId) === 4 && parseInt(wallLength) < 6) {
+        damage = 2.1
+    }
+    //metal arrow on concrete
+    else if(id === 10 && parseInt(wallId) === 5 && parseInt(wallLength) < 6) {
+        damage = 2.1
+    }
+    //metal arrow on sandbag
+    else if (id === 10 && parseInt(wallId) === 6 && parseInt(wallLength) < 6){
+        damage = 2.1
+    }
+
+    //METAL ARROW END
+
+    //==============================================================================================
+
+
+
+    function weaponsNeeded(wallHealth, damage){
+        return Math.round(wallHealth / damage);
+    }
+
+
+    let Finalhtml = '<div class="col bg-dark text-white"><h5> ** Each <span style="color: red; font-weight: bold">'+ weapon.name +'</span> will do <span style="color: red; font-weight: bold">'+ damage +'</span> damage to a <span style="color: green; font-weight: bold">'+ wallLength +'m '+ walls[wallId - 1].name +'</span> structure **</h5><h1>You need<br> <span id="numberNeeded" style="color: red; font-weight: bold">'+ weaponsNeeded(wallHealth, damage) +'</span> - <span style="color: red; font-weight: bold">'+ weapon.name +'</span><br> to destroy <span style="color: green; font-weight: bold">'+ numberOfWalls +'</span><br> <span style="color: green; font-weight: bold">'+ wallLength +'m '+ walls[wallId - 1].name.toUpperCase() +'</span> structure(s)</h1></div>'
+
+    let playerBoltsHtml = '<div class="col bg-dark text-white"><h4 class="mt-5">** USE TO SEE HOW MANY BOLTS EACH PLAYER NEEDS TO FIRE **</h4><br><div>Select number of attackers: <select id="players" class="boltsNeeded mb-2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div><a href="#numberJump"><button class="btn btn-success mb-5" id="playerBolts" onclick="numberOfBolts()">CALCULATE</button></a></div>';
 
     let finalArea = document.querySelector('.final');
     finalArea.innerHTML = Finalhtml;
 
+    if(weapon.id === 9 || weapon.id === 10){
+        let boltsArea = document.querySelector('.bolts');
+        boltsArea.innerHTML = playerBoltsHtml;
+    }
+
+
+
+
 }
 
 //WEAPON FUNCTIONALITY END
+
+//NUMBER OF BOLTS START
+function numberOfBolts(){
+
+    var numberOfPlayers = document.getElementById('players');
+    var playersValue = numberOfPlayers.options[numberOfPlayers.selectedIndex].value;
+
+    function bolts(){
+        return (Math.round(parseInt(document.getElementById('numberNeeded').innerHTML) / playersValue));
+    }
+
+    let boltsHtml = '<div id="numberJump" class="col bg-dark text-white pb-5"><h3 style="text-align: center">With <span style="color: green">'+ playersValue +'</span> player(s), each will need to fire <span style="color: red">'+ bolts() +'</span> bolts to destroy the structure.</h3></div>';
+
+    let playerAmounts = document.querySelector('.playerBolts');
+    playerAmounts.innerHTML = boltsHtml;
+}
+
+
+
+//NUMBER OF BOLTS END
 
 
 

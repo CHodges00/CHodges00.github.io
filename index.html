@@ -27,13 +27,15 @@
 <!--HEADER END-->
 
 <!--INSTRUCTIONS START-->
-<div class="d-flex justify-content-center text-center flex-column align-items-center m-5">
-    <h2>INSTRUCTIONS</h2><br>
-    <p>- Select LENGTH and # of your wall(s) then click the "Set Health" button, the page will jump you to the info for that calculation</p><br>
+<div class="d-flex justify-content-center text-center flex-column align-items-center m-3">
+    <h2 class="text-dark">INSTRUCTIONS</h2><br>
+    <h5 style="color: blue; font-weight: bold">**** ALL CALCULATIONS ARE ROUNDED UP AND CAN VARY DEPENDING ON HOW EXPLOSIVES ARE PLACED ****</h5><br>
+    <h5 style="color: blue; font-weight: bold"> *** LENGTH values are the same for Sandbags;&nbsp; just leave LENGTH at "1" when selecting these structures *** </h5><br>
+    <p>- Select LENGTH and # of your structure(s) then click the "Set Health" button, the page will jump you to the info for that calculation</p><br>
     <p>- Find the WEAPON type you wish to use and click "SELECT", this will jump you to the final calculations</p><br>
-    <p>- You do not have to refresh the page for a new calculation, the last WALL value that you set at the top will persist if you wish to check multiple WEAPON types to that value.</p><br>
-    <p>- If you want to check a new wall value simply scroll back to the top and submit new values</p>
-    <h5 style="color: blue; font-weight: bold"> *** LENGTH values are the same for Sandbags;&nbsp; just leave LENGTH at "1" when selecting these structures *** </h5>
+    <p>- If crossbow BOLTS are selected, you will have the option to calculate how many each team member will need to fire</p><br>
+    <p>- You do not have to refresh the page for a new calculation, the last STRUCTURE value that you set at the top will persist if you wish to check multiple WEAPON types to that value.</p><br>
+    <p>- If you want to check a new structure value simply scroll back to the top and submit new values</p><br>
 </div>
 <!--INSTRUCTIONS END-->
 
@@ -65,16 +67,21 @@
         </div>
     </div>
 </div>
+
 <div class="container-fluid mt-5" style="width: 100%">
-    <div class="row d-flex justify-content-center weapons">
-    </div>
-</div>
-
-<div id="finalJump"></div>
-<div class="final row d-fle m-5" style="text-align: center">
-
+    <div class="row d-flex justify-content-center weapons"></div>
 </div>
 <!--WEAPONS END-->
+
+<!--DAMAGE START-->
+<div id="finalJump"></div>
+
+<div class="final row d-flex m-5" style="text-align: center"></div>
+
+<div class="bolts row d-flex mt-5" style="text-align: center"></div>
+
+<div class="playerBolts row row d-flex" style="text-align: center"></div>
+<!--DAMAGE END-->
 
 
 
